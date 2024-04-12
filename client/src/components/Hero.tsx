@@ -1,32 +1,38 @@
+"use client";
+import axios from "axios";
 import { useEffect, useState } from "react";
 
 export const Hero = () => {
-    const [apiResponse, setApiResponse] = useState<Record<string, any>>();
+  const [groups, setGroups] = useState<Record<string, any>[]>();
 
-    useEffect(()=> {
-        const getData = async () => {
-            let res: Response | undefined = undefined;
-
-            try{
-             res = await fetch('http://127.0.0.1:8000/api/groups');
-            } catch (error) {
-                console.error(error)
-            }
-
-            if(!res || res.status !== 200){
-                throw new Error(`Error: ${res && res.status ? `status code ${res.status}` : 'failed to get response.'}`)
-            }
-
-            const data = res.json();
-            
-            console.log(data)
-            setApiResponse(data);
+  useEffect(() => {
+    const fetchGroups = async () => {
+      setTimeout(async () => {
+        try {
+          const { data: groupData } = await axios(
+            "http://127.0.0.1:8000/api/groups/",
+          );
+          setGroups(groupData);
+        } catch (error) {
+          throw error as Error;
         }
+      }, 2000);
+    };
 
-        getData();
-    }, []);
+    fetchGroups();
+  }, []);
 
-    return (<div className="flex flex-col justify-center items-center">
-        {JSON.stringify(apiResponse)}
-    </div>)
-}
+  return (
+    <div className="flex flex-col items-center justify-center">
+      {groups
+        ? groups.map((group) => (
+            <div key={group.name} className="m-3 bg-red-100 text-black">
+              {group.name}
+              {" from "}
+              {group.location}
+            </div>
+          ))
+        : null}
+    </div>
+  );
+};

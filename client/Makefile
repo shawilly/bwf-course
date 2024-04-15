@@ -1,4 +1,4 @@
-pretty:
+prettys:
 	npx prettier "**/*.{ts,tsx,js,jsx}" --write
 
 rcd:

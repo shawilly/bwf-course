@@ -18,7 +18,7 @@ export default function DefaultLayout({
         <Link
           isExternal
           className="flex items-center gap-1 text-current"
-          href="https://github.com/shawilly"
+          href="https://shawilly.dev"
           title="nextui.org homepage"
         >
           <span className="text-default-600">created by </span>

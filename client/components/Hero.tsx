@@ -26,7 +26,7 @@ export const Hero = () => {
     <div className="flex flex-col items-center justify-center">
       {groups
         ? groups.map((group) => (
-            <div key={group.id} className="m-3 text-black bg-red-100">
+            <div key={group.id} className="m-3 bg-red-100 text-black">
               {group.name}
               {" from "}
               {group.location}

@@ -1,24 +1,29 @@
-import { GithubIcon } from "@/src/pages/components/icons";
-import { subtitle, title } from "@/src/pages/components/primitives";
-import { siteConfig } from "@/src/pages/config/site";
-import DefaultLayout from "@/src/pages/layouts/default";
+import { GithubIcon, Logo } from "@/components/icons";
+import { title } from "@/components/primitives";
+import { siteConfig } from "@/config/site";
+import DefaultLayout from "@/layouts/default";
 import { Code } from "@nextui-org/code";
 import { Link } from "@nextui-org/link";
 import { Snippet } from "@nextui-org/snippet";
 import { button as buttonStyles } from "@nextui-org/theme";
+import { motion } from "framer-motion";
 
 export default function IndexPage() {
   return (
     <DefaultLayout>
       <section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10">
         <div className="inline-block max-w-lg justify-center text-center">
-          <h1 className={title()}>Betr </h1>
-          <h1 className={title({ color: "green" })}>the odds</h1>
+          <h1 className={title()}>beat the </h1>
+          <h1 className={title({ color: "green" })}>odds together</h1>
           <br />
-          <h4 className={subtitle({ class: "mt-4" })}>
-            get together, win together
-          </h4>
         </div>
+        <motion.div
+          initial={{ opacity: 0, scale: 0.5 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.5 }}
+        >
+          <Logo className="gap-4" size={300} />
+        </motion.div>
         <div className="flex gap-3">
           <Link
             isExternal

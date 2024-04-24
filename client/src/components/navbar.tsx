@@ -5,9 +5,9 @@ import {
   Logo,
   SearchIcon,
   TwitterIcon,
-} from "@/src/pages/components/icons";
-import { ThemeSwitch } from "@/src/pages/components/theme-switch";
-import { siteConfig } from "@/src/pages/config/site";
+} from "@/components/icons";
+import { ThemeSwitch } from "@/components/theme-switch";
+import { siteConfig } from "@/config/site";
 import {
   Button,
   Input,

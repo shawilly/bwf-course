@@ -1,9 +1,9 @@
-import { IconSvgProps } from "@/src/pages/types";
+import { IconSvgProps } from "@/types";
 import * as React from "react";
 
 export const Logo: React.FC<IconSvgProps> = ({
   size = 39,
-  width = 55,
+  width = size * 1.5,
   height = size * (161.1456 / 380), // maintaining the aspect ratio of the original SVG
   ...props
 }) => (

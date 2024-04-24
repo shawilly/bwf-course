@@ -1,33 +1,29 @@
 import {
+  DiscordIcon,
+  GithubIcon,
+  HeartFilledIcon,
+  Logo,
+  SearchIcon,
+  TwitterIcon,
+} from "@/src/pages/components/icons";
+import { ThemeSwitch } from "@/src/pages/components/theme-switch";
+import { siteConfig } from "@/src/pages/config/site";
+import {
   Button,
+  Input,
   Kbd,
   Link,
-  Input,
-  Navbar as NextUINavbar,
-  NavbarContent,
-  NavbarMenu,
-  NavbarMenuToggle,
   NavbarBrand,
+  NavbarContent,
   NavbarItem,
+  NavbarMenu,
   NavbarMenuItem,
+  NavbarMenuToggle,
+  Navbar as NextUINavbar,
 } from "@nextui-org/react";
-
 import { link as linkStyles } from "@nextui-org/theme";
-
-import { siteConfig } from "@/config/site";
-import NextLink from "next/link";
 import clsx from "clsx";
-
-import { ThemeSwitch } from "@/components/theme-switch";
-import {
-  TwitterIcon,
-  GithubIcon,
-  DiscordIcon,
-  HeartFilledIcon,
-  SearchIcon,
-} from "@/components/icons";
-
-import { Logo } from "@/components/icons";
+import NextLink from "next/link";
 
 export const Navbar = () => {
   const searchInput = (

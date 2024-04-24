@@ -1,4 +1,4 @@
-import { IconSvgProps } from "@/types";
+import { IconSvgProps } from "@/src/pages/types";
 import * as React from "react";
 
 export const Logo: React.FC<IconSvgProps> = ({

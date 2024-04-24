@@ -1,6 +1,6 @@
 import type { AppProps } from "next/app";
 
-import { fontMono, fontSans } from "@/config/fonts";
+import { fontMono, fontSans } from "@/src/pages/config/fonts";
 import "@/styles/globals.css";
 import { NextUIProvider } from "@nextui-org/react";
 import { ThemeProvider as NextThemesProvider } from "next-themes";

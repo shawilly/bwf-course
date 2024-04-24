@@ -19,7 +19,7 @@
       }
     ],
     "paths": {
-      "@/*": ["./*"] // Merged both path mappings
+      "@/*": ["./*", "./src/*"] // Merged both path mappings
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],

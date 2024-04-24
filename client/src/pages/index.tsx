@@ -1,28 +1,24 @@
+import { GithubIcon } from "@/src/pages/components/icons";
+import { subtitle, title } from "@/src/pages/components/primitives";
+import { siteConfig } from "@/src/pages/config/site";
+import DefaultLayout from "@/src/pages/layouts/default";
+import { Code } from "@nextui-org/code";
 import { Link } from "@nextui-org/link";
 import { Snippet } from "@nextui-org/snippet";
-import { Code } from "@nextui-org/code";
 import { button as buttonStyles } from "@nextui-org/theme";
-import { siteConfig } from "@/config/site";
-import { title, subtitle } from "@/components/primitives";
-import { GithubIcon } from "@/components/icons";
-import DefaultLayout from "@/layouts/default";
 
 export default function IndexPage() {
   return (
     <DefaultLayout>
       <section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10">
         <div className="inline-block max-w-lg justify-center text-center">
-          <h1 className={title()}>Make&nbsp;</h1>
-          <h1 className={title({ color: "violet" })}>beautiful&nbsp;</h1>
+          <h1 className={title()}>Betr </h1>
+          <h1 className={title({ color: "green" })}>the odds</h1>
           <br />
-          <h1 className={title()}>
-            websites regardless of your design experience.
-          </h1>
           <h4 className={subtitle({ class: "mt-4" })}>
-            Beautiful, fast and modern React UI library.
+            get together, win together
           </h4>
         </div>
-
         <div className="flex gap-3">
           <Link
             isExternal

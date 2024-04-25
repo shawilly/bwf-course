@@ -2,13 +2,10 @@ import { GithubIcon, Logo } from "@/components/icons";
 import { title } from "@/components/primitives";
 import { siteConfig } from "@/config/site";
 import DefaultLayout from "@/layouts/default";
-import { Code } from "@nextui-org/code";
-import { Link } from "@nextui-org/link";
-import { Snippet } from "@nextui-org/snippet";
-import { button as buttonStyles } from "@nextui-org/theme";
+import { Code, Link, Snippet, button as buttonStyles } from "@nextui-org/react";
 import { motion } from "framer-motion";
 
-export default function IndexPage() {
+const IndexPage = () => {
   return (
     <DefaultLayout>
       <section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10">
@@ -57,4 +54,6 @@ export default function IndexPage() {
       </section>
     </DefaultLayout>
   );
-}
+};
+
+export default IndexPage;

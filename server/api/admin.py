@@ -11,13 +11,5 @@ class GroupAdmin(admin.ModelAdmin):
 
 @admin.register(Event)
 class EventAdmin(admin.ModelAdmin):
-    fields = ("name", "location", "description")  # type: ignore
-    list_display = (
-        "id",
-        "team1",
-        "team2",
-        "time",
-        "score1",
-        "score2",
-        "group",
-    )  # type: ignore
+    fields = ("team1", "team2", "time", "score1", "score2", "group")
+    list_display = ("team1", "team2", "time", "score1", "score2", "group")

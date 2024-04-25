@@ -5,6 +5,16 @@ import DefaultLayout from "@/layouts/default";
 import { Code, Link, Snippet, button as buttonStyles } from "@nextui-org/react";
 import { motion } from "framer-motion";
 
+export async function getStaticProps() {
+  const api = process.env.BWF_API;
+
+  return {
+    props: {
+      api,
+    },
+  };
+}
+
 const IndexPage = () => {
   return (
     <DefaultLayout>

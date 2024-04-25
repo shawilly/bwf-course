@@ -74,7 +74,7 @@ export const Navbar = () => {
       </NavbarContent>
 
       <NavbarContent
-        className="hidden basis-1/5 sm:flex sm:basis-full"
+        className="hidden basis-1/5 md:flex md:basis-full"
         justify="end"
       >
         <NavbarItem className="hidden gap-2 sm:flex">
@@ -89,7 +89,7 @@ export const Navbar = () => {
           </Link>
           <ThemeSwitch />
         </NavbarItem>
-        <NavbarItem className="hidden lg:flex">{searchInput}</NavbarItem>
+        <NavbarItem className="hidden md:flex">{searchInput}</NavbarItem>
         <NavbarItem className="hidden md:flex">
           <Button
             isExternal
@@ -104,7 +104,7 @@ export const Navbar = () => {
         </NavbarItem>
       </NavbarContent>
 
-      <NavbarContent className="basis-1 pl-4 sm:hidden" justify="end">
+      <NavbarContent className="basis-1 pl-4 md:hidden" justify="end">
         <Link isExternal href={siteConfig.links.github}>
           <GithubIcon className="text-default-500" />
         </Link>

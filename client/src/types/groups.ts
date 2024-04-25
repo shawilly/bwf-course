@@ -3,3 +3,7 @@ export interface IGroup {
   name: string;
   location: string;
 }
+
+export type GroupsResponse = {
+  groups: IGroup[];
+};

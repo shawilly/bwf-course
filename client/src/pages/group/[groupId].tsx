@@ -28,18 +28,20 @@ const Group = () => {
 
   useEffect(() => {
     const fetchGroup = async () => {
+      setLoading(true);
+
       if (!groupId) return;
 
       try {
-        const response: { data: GroupResponse } = await axios(
+        const { data }: { data: GroupResponse } = await axios(
           `/api/group?groupId=${groupId}`,
         );
 
-        setGroup(response.data.group);
+        setGroup(data.group);
         setLoading(false);
       } catch (e) {
-        console.log("error", e);
         const { status, message } = e as AxiosError;
+
         setError({
           status: (status as STATUS_CODE) || STATUS_CODE.SERVER_ERROR_INTERNAL,
           message,

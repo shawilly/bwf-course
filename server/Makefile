@@ -1,5 +1,8 @@
-rs:
+run-server:
 	python3 manage.py runserver
 
-mm:
+make-migrations:
 	python3 manage.py makemigrations
+
+start-venv:
+	source venv/bin/activate

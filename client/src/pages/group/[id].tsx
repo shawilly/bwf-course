@@ -1,5 +1,6 @@
 import DefaultLayout from "@/layouts/default";
-import { IGroup } from "@/types/groups";
+import { STATUS_CODE } from "@/src/status_codes";
+import { GroupResponse, IGroup } from "@/types/groups";
 import {
   Card,
   CardBody,
@@ -10,27 +11,39 @@ import {
   Link,
   Spinner,
 } from "@nextui-org/react";
-import axios from "axios";
+import axios, { AxiosError } from "axios";
+import Error from "next/error";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 
 const Group = () => {
   const router = useRouter();
   const { id } = router.query;
-  const [group, setGroup] = useState<IGroup>();
+  const [group, setGroup] = useState<IGroup | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
-  const [error, setError] = useState<string | null>(null);
+  const [error, setError] = useState<{
+    message: string;
+    status: STATUS_CODE;
+  } | null>(null);
 
   useEffect(() => {
     const fetchGroup = async () => {
       try {
-        const { data: groupData } = await axios(
-          `${process.env.BWF_API}/groups/${id}`,
+        const response: { data: GroupResponse } = await axios(
+          `/api/group?id=${id}`,
         );
-        setGroup(groupData);
+
+        console.log(response);
+
+        setGroup(response.data.group);
         setLoading(false);
-      } catch (error: any) {
-        setError("Failed to fetch group");
+      } catch (e) {
+        console.log("error", e);
+        const { status, message } = e as AxiosError;
+        setError({
+          status: (status as STATUS_CODE) || STATUS_CODE.SERVER_ERROR_INTERNAL,
+          message,
+        });
         setLoading(false);
       }
     };
@@ -41,13 +54,15 @@ const Group = () => {
   if (loading) {
     return (
       <div className="flex items-center justify-center">
-        <Spinner />
+        <Spinner label="Loading..." color="primary" />
       </div>
     );
   }
 
   if (error || !group) {
-    return <div className="flex items-center justify-center">{error}</div>;
+    const status = error?.status || 500;
+    const message = error?.message || "Something went wrong.";
+    return <Error statusCode={status}>{message}</Error>;
   }
 
   return (
@@ -70,6 +85,8 @@ const Group = () => {
           <Divider />
           <CardBody>
             <p>Located in {group.location}</p>
+            <br />
+            <p>{group.description}</p>
           </CardBody>
           <Divider />
           <CardFooter>

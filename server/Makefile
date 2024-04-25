@@ -5,4 +5,4 @@ make-migrations:
 	python3 manage.py makemigrations
 
 start-venv:
-	source venv/bin/activate
+	source myvenv/bin/activate

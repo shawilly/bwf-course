@@ -18,7 +18,7 @@ import { useEffect, useState } from "react";
 
 const Group = () => {
   const router = useRouter();
-  const { id } = router.query;
+  const { groupId } = router.query;
   const [group, setGroup] = useState<IGroup | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<{
@@ -28,12 +28,12 @@ const Group = () => {
 
   useEffect(() => {
     const fetchGroup = async () => {
+      if (!groupId) return;
+
       try {
         const response: { data: GroupResponse } = await axios(
-          `/api/group?id=${id}`,
+          `/api/group?groupId=${groupId}`,
         );
-
-        console.log(response);
 
         setGroup(response.data.group);
         setLoading(false);
@@ -49,7 +49,7 @@ const Group = () => {
     };
 
     fetchGroup();
-  }, []);
+  }, [groupId]);
 
   if (loading) {
     return (
@@ -84,7 +84,7 @@ const Group = () => {
           </CardHeader>
           <Divider />
           <CardBody>
-            <p>Located in {group.location}</p>
+            <p className="font-semibold">{group.location}</p>
             <br />
             <p>{group.description}</p>
           </CardBody>

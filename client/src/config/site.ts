@@ -61,9 +61,7 @@ export const siteConfig = {
   ],
   links: {
     github: "https://github.com/shawilly/bwf-course",
-    twitter: "https://twitter.com/getnextui",
     docs: "https://nextui-docs-v2.vercel.app",
-    discord: "https://discord.gg/9b6yyZKmH4",
-    sponsor: "https://patreon.com/jrgarciadev",
+    course: "https://www.udemy.com/course/react-django-full-stack-advance",
   },
 };

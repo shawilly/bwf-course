@@ -1,10 +1,8 @@
 import {
-  DiscordIcon,
   GithubIcon,
   HeartFilledIcon,
   Logo,
   SearchIcon,
-  TwitterIcon,
 } from "@/components/icons";
 import { ThemeSwitch } from "@/components/theme-switch";
 import { siteConfig } from "@/config/site";
@@ -78,30 +76,25 @@ export const Navbar = () => {
         justify="end"
       >
         <NavbarItem className="hidden gap-2 sm:flex">
-          <Link isExternal href={siteConfig.links.twitter}>
-            <TwitterIcon className="text-default-500" />
-          </Link>
-          <Link isExternal href={siteConfig.links.discord}>
-            <DiscordIcon className="text-default-500" />
-          </Link>
           <Link isExternal href={siteConfig.links.github}>
             <GithubIcon className="text-default-500" />
           </Link>
           <ThemeSwitch />
         </NavbarItem>
         <NavbarItem className="hidden md:flex">{searchInput}</NavbarItem>
-        <NavbarItem className="hidden md:flex">
+        <NavbarItem className="hidden lg:flex">
           <Button
             isExternal
             as={Link}
             className="bg-default-100 text-sm font-normal text-default-600"
-            href={siteConfig.links.sponsor}
+            href={siteConfig.links.course}
             startContent={<HeartFilledIcon className="text-danger" />}
             variant="flat"
           >
-            Sponsor
+            Build this
           </Button>
         </NavbarItem>
+        <NavbarMenuToggle />
       </NavbarContent>
 
       <NavbarContent className="basis-1 pl-4 md:hidden" justify="end">

@@ -12,7 +12,6 @@ const IndexPage = () => {
         <div className="inline-block max-w-lg justify-center text-center">
           <h1 className={title()}>beat the </h1>
           <h1 className={title({ color: "green" })}>odds together</h1>
-          <br />
         </div>
         <motion.div
           initial={{ opacity: 0, scale: 0.5 }}
@@ -31,23 +30,21 @@ const IndexPage = () => {
               variant: "shadow",
             })}
           >
-            Documentation
+            Free trial
           </Link>
           <Link
             isExternal
             className={buttonStyles({ variant: "bordered", radius: "full" })}
             href={siteConfig.links.github}
           >
-            <GithubIcon size={20} />
-            GitHub
+            Login
           </Link>
         </div>
 
         <div className="mt-8">
           <Snippet hideSymbol hideCopyButton variant="bordered">
             <span>
-              Get started by editing{" "}
-              <Code color="primary">pages/index.tsx</Code>
+              Get started with <Code color="success">100 free tokens</Code>
             </span>
           </Snippet>
         </div>
